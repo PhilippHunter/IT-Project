@@ -49,3 +49,7 @@ Android Augmented Reality Project from 4 funny students c:
 1. Connect your device and enable USB Debugging
 2. Select your device in Build Settings -> Build System
 3. Select "Build and Run" -> Enter application name for .apk file and the application should launch on your device
+
+## How to commit
+1. Add a sophisticated commit message from http://whatthecommit.com/
+2. Before committing, please show your local changes to your assigned IT Administrators Philipp or Selina for validation
