@@ -9,6 +9,7 @@ Android Augmented Reality Project from 4 funny students c:
     - Android Build Support 
     - Android SDK & NDK Tools
     - Vuforia Augmented Reality Support
+5. Download "DB Browser for SQLite - Standard installer for 64-bit Windows" from https://sqlitebrowser.org/dl/
     
 ## Setting up Git
 1. Download the Git GUI Program of your choice (https://desktop.github.com/)
