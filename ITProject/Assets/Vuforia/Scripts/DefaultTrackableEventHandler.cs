@@ -8,6 +8,8 @@ Confidential and Proprietary - Protected under copyright and other laws.
 
 using UnityEngine;
 using Vuforia;
+using UnityEngine.UI;
+using System;
 
 /// <summary>
 /// A custom handler that implements the ITrackableEventHandler interface.
@@ -17,11 +19,19 @@ using Vuforia;
 /// </summary>
 public class DefaultTrackableEventHandler : MonoBehaviour, ITrackableEventHandler
 {
+ 
     #region PROTECTED_MEMBER_VARIABLES
 
     protected TrackableBehaviour mTrackableBehaviour;
     protected TrackableBehaviour.Status m_PreviousStatus;
     protected TrackableBehaviour.Status m_NewStatus;
+
+    //fields for buttons that appear on target recognition
+    public Button changeToQuiz;
+    public Button changeToInfo;
+
+    //reference to another script
+    public SceneSwitcher sceneSwitcher;
 
     #endregion // PROTECTED_MEMBER_VARIABLES
 
@@ -83,6 +93,14 @@ public class DefaultTrackableEventHandler : MonoBehaviour, ITrackableEventHandle
 
     protected virtual void OnTrackingFound()
     {
+        //buttons are set to visible 
+        changeToQuiz.gameObject.SetActive(true);
+        changeToInfo.gameObject.SetActive(true);
+
+        //Calling methods of SceneSwitcherScript and handing over the country name (which is the targetImageName)
+        changeToQuiz.onClick.AddListener(() => sceneSwitcher.startQuiz(mTrackableBehaviour.TrackableName));
+        changeToInfo.onClick.AddListener(() => sceneSwitcher.getCountryInfo(mTrackableBehaviour.TrackableName));
+
         var rendererComponents = GetComponentsInChildren<Renderer>(true);
         var colliderComponents = GetComponentsInChildren<Collider>(true);
         var canvasComponents = GetComponentsInChildren<Canvas>(true);
@@ -103,6 +121,18 @@ public class DefaultTrackableEventHandler : MonoBehaviour, ITrackableEventHandle
 
     protected virtual void OnTrackingLost()
     {
+        //buttons are set to invisible
+        //TOFIX: Another soluion than Exception
+        try
+        {
+            changeToQuiz.gameObject.SetActive(false);
+            changeToInfo.gameObject.SetActive(false);
+        }
+        catch (Exception e)
+        {
+            Debug.LogException(e, this);
+        }
+
         var rendererComponents = GetComponentsInChildren<Renderer>(true);
         var colliderComponents = GetComponentsInChildren<Collider>(true);
         var canvasComponents = GetComponentsInChildren<Canvas>(true);
@@ -119,6 +149,5 @@ public class DefaultTrackableEventHandler : MonoBehaviour, ITrackableEventHandle
         foreach (var component in canvasComponents)
             component.enabled = false;
     }
-
     #endregion // PROTECTED_METHODS
 }
