@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class SceneSwitcher : MonoBehaviour
@@ -8,9 +6,9 @@ public class SceneSwitcher : MonoBehaviour
     public void startQuiz(string country)
     {
         //make database query here to get correct content for country
-
-
+        
         SceneManager.LoadScene("Menu");
+        //GetQuestionByCountry()
         Debug.Log("Country: " + country);
     }
 
