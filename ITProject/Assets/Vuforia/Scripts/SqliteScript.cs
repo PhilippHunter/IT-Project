@@ -6,9 +6,9 @@ using Mono.Data.Sqlite;
 using System.IO;
 using Assets.Model;
 
-public static class SqliteScript 
+public class SqliteScript : MonoBehaviour
 {
-    static string connectionString = $"URI=file:{Application.dataPath}/Plugins/Database.db";
+    static string connectionString = $"URI=file:C:/workspace/IT-Project/ITProject/Assets/Plugins/Database.db";
     // Use this for initialization
     //void Start()
     //{
@@ -40,15 +40,15 @@ public static class SqliteScript
     private static Country getCountry(string countryString, SqliteConnection connection)
     {
         Country result;
-        using (SqliteCommand command = new SqliteCommand($"SELECT * FROM countries WHERE name={countryString}, {connection}"))
+        using (SqliteCommand command = new SqliteCommand($"SELECT * FROM country WHERE name='{countryString}'", connection))
         {
             command.Connection.Open();
             using (SqliteDataReader reader = command.ExecuteReader())
             {
                 while (reader.Read())
                 {
-                    result = new Country(reader["country_text"].ToString());
-                    Debug.Log(result);
+                    result = new Country((int) reader["id"], reader["name"].ToString());
+                    Debug.Log(result.Name);
                     return result;
                 }
             }
@@ -56,15 +56,15 @@ public static class SqliteScript
         return null;
     } 
 
-    public static List<Question> GetQuestionByCountry(string countryString)
+    public static List<Question> GetQuestionsByCountry(string countryString)
     {
         List<Question> result = new List<Question>();
         using (SqliteConnection connection = new SqliteConnection(connectionString))
         {
             Country country = getCountry(countryString, connection);
-            using (SqliteCommand command = new SqliteCommand("SELECT * FROM questions;", connection))
+            using (SqliteCommand command = new SqliteCommand($"SELECT * FROM questions WHERE country_id={country.ID};", connection))
             {
-                command.Connection.Open();
+               // command.Connection.Open();
                 using (SqliteDataReader reader = command.ExecuteReader())
                 {
                     while (reader.Read())

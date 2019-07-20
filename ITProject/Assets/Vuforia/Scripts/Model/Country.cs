@@ -8,8 +8,9 @@ namespace Assets.Model
 {
     public class Country
     {
-        public Country(string name)
+        public Country(int id, string name)
         {
+            ID = id;
             Name = name;
             Questions = new List<Question>();
         }
