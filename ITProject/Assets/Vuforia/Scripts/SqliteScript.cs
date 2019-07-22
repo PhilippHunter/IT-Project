@@ -2,11 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.Data;
+using System;
 using Mono.Data.Sqlite;
 using System.IO;
 using Assets.Model;
 
-public class SqliteScript : MonoBehaviour
+public class SqliteScript
 {
     static string connectionString = $"URI=file:C:/workspace/IT-Project/ITProject/Assets/Plugins/Database.db";
     // Use this for initialization
@@ -40,14 +41,14 @@ public class SqliteScript : MonoBehaviour
     private static Country getCountry(string countryString, SqliteConnection connection)
     {
         Country result;
-        using (SqliteCommand command = new SqliteCommand($"SELECT * FROM country WHERE name='{countryString}'", connection))
+        using (SqliteCommand command = new SqliteCommand($"SELECT * FROM countries WHERE name='{countryString}'", connection))
         {
             command.Connection.Open();
             using (SqliteDataReader reader = command.ExecuteReader())
             {
                 while (reader.Read())
                 {
-                    result = new Country((int) reader["id"], reader["name"].ToString());
+                    result = new Country(Convert.ToInt32(reader["id"].ToString()), reader["name"].ToString());
                     Debug.Log(result.Name);
                     return result;
                 }
@@ -72,6 +73,31 @@ public class SqliteScript : MonoBehaviour
                         Question question = new Question(reader["question_text"].ToString());
                         if (!result.Contains(question))
                             result.Add(question);
+                    }
+                }
+            }
+        }
+        return result;
+    }
+
+    public static List<Country> GetCountriesByContinent(string continentString)
+    {
+        List<Country> result = new List<Country>();
+        using (SqliteConnection connection = new SqliteConnection(connectionString))
+        {
+            using (SqliteCommand command = new SqliteCommand(
+                //"SELECT country.name FROM countries AS country " +
+                //"JOIN continents AS continent ON country.continent_id=continent.id " +
+                //$"WHERE continent.name='{continentString}';"
+                "SELECT name FROM countries WHERE continent_id=5;"
+                , connection))
+            {
+                using (SqliteDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        Country country = new Country(Convert.ToInt32(reader["id"].ToString()), reader["name"].ToString());
+                        result.Add(country);
                     }
                 }
             }
