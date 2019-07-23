@@ -6,13 +6,15 @@ using UnityEngine;
 
 public class QuizScript : MonoBehaviour
 {
-    TextMeshProUGUI m_Text;
+    private TextMeshProUGUI m_Text;
+
     // Start is called before the first frame update
     void Start()
     {
         m_Text = GetComponent<TextMeshProUGUI>();
-        List<Question> uff = SceneSwitcher.questions;
-        m_Text.text = uff[0].Text;
+        string allQuestions = string.Join("\n\n", SceneSwitcher.Questions);
+        m_Text.text = allQuestions;
+        
     }
 
     // Update is called once per frame

@@ -70,9 +70,30 @@ public class SqliteScript
                 {
                     while (reader.Read())
                     {
-                        Question question = new Question(reader["question_text"].ToString());
+                        Question question = new Question(Convert.ToInt32(reader["id"]), reader["question_text"].ToString());
                         if (!result.Contains(question))
                             result.Add(question);
+                    }
+                }
+            }
+        }
+        return result;
+    }
+
+    public static List<Answer> GetAnswersByQuestionId(int questionId)
+    {
+        List<Answer> result = new List<Answer>();
+        using (SqliteConnection connection = new SqliteConnection(connectionString))
+        {
+            using (SqliteCommand command = new SqliteCommand($"SELECT * FROM answers WHERE question_id={questionId};", connection))
+            {
+                command.Connection.Open();
+                using (SqliteDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        Answer answer = new Answer(reader["answer_text"].ToString(), Convert.ToBoolean(reader["is_correct"]));
+                        result.Add(answer);
                     }
                 }
             }
@@ -86,12 +107,12 @@ public class SqliteScript
         using (SqliteConnection connection = new SqliteConnection(connectionString))
         {
             using (SqliteCommand command = new SqliteCommand(
-                //"SELECT country.name FROM countries AS country " +
-                //"JOIN continents AS continent ON country.continent_id=continent.id " +
-                //$"WHERE continent.name='{continentString}';"
-                "SELECT name FROM countries WHERE continent_id=5;"
+                "SELECT country.name FROM countries AS country " +
+                "JOIN continents AS continent ON country.continent_id=continent.id " +
+                $"WHERE continent.name='{continentString}';"
                 , connection))
             {
+                command.Connection.Open();
                 using (SqliteDataReader reader = command.ExecuteReader())
                 {
                     while (reader.Read())

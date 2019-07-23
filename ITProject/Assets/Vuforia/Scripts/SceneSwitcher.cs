@@ -8,18 +8,24 @@ using System;
 
 public class SceneSwitcher : MonoBehaviour
 {
-    public static List<Question> questions { get; set; }
-    public static List<Country> countries { get; set; }
+    public static List<Question> Questions { get; set; }
+    public static Dictionary<Question, List<Answer>> QuestionsMap { get; set; }
+    public static List<Country> Countries { get; set; }
     public void startQuiz(string country)
     {
+        Questions = SqliteScript.GetQuestionsByCountry("Germany");
+
+        /*----EXPERIMENTAL----*/
         //make database query here to get correct content for country
-        questions = SqliteScript.GetQuestionsByCountry("Germany");
+        //List<Question> quests = SqliteScript.GetQuestionsByCountry("Germany");
+        //foreach (Question q in quests)
+        //{
+        //    List<Answer> answers = SqliteScript.GetAnswersByQuestionId(q.ID);
+        //    QuestionsMap.Add(q, answers);
+        //    Debug.Log(QuestionsMap[q]);
+        //}
 
         SceneManager.LoadScene("Quiz");
-        foreach (Question q in questions)
-        {
-            Debug.Log(q.Text);
-        }
     }
 
     public void getCountryInfo(string country)

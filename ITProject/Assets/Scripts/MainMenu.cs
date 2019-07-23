@@ -14,11 +14,12 @@ public class MainMenu : MonoBehaviour
 
     public void OpenLearningScene()
     {
-        List<Country> countries = SqliteScript.GetCountriesByContinent("Europe");
-        foreach (Country c in countries)
-        {
-            Debug.Log(c.Name);
-        }
+        /*testing reasons - doesn't work yet*/
+        //List<Country> countries = SqliteScript.GetCountriesByContinent("Europe");
+        //foreach (Country c in countries)
+        //{
+        //    Debug.Log(c.Name);
+        //}
 
         SceneManager.LoadScene("Learn");
     }

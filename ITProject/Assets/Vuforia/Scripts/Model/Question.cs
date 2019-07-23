@@ -8,8 +8,9 @@ namespace Assets.Model
 {
     public class Question
     {
-        public Question(string text)
+        public Question(int id, string text)
         {
+            ID = id;
             Text = text;
         }
 
