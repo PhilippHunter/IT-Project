@@ -27,22 +27,33 @@ public class QuizScript : MonoBehaviour
 
     void InitializeQuizSection()
     {
-
         Question question = SceneSwitcher.QuestionsMap.Keys.ElementAt(questionCounter);
         List<Answer> answers = SceneSwitcher.QuestionsMap.Values.ElementAt(questionCounter);
+        TextMeshProUGUI button1 = answer1.GetComponent<TextMeshProUGUI>();
+        TextMeshProUGUI button2 = answer2.GetComponent<TextMeshProUGUI>();
+        TextMeshProUGUI button3 = answer3.GetComponent<TextMeshProUGUI>();
+        TextMeshProUGUI button4 = answer4.GetComponent<TextMeshProUGUI>();
 
-        //set question text
+        /*set question text*/
         questionText.text = question.Text;
 
         /*set answer texts*/
         /*tryed to shuffel order of answers so they're always different*/
         //var shuffledAnswers = answers.OrderBy(item => UnityEngine.Random.Range(0,answers.Count));
 
-        answer1.GetComponentInChildren<TextMeshProUGUI>().text = answers[0].Text;
-        answer2.GetComponentInChildren<TextMeshProUGUI>().text = answers[1].Text;
-        answer3.GetComponentInChildren<TextMeshProUGUI>().text = answers[2].Text;
-        answer4.GetComponentInChildren<TextMeshProUGUI>().text = answers[3].Text;
+        button1.text = answers[0].Text;
+        button2.text = answers[1].Text;
+        button3.text = answers[2].Text;
+        button4.text = answers[3].Text;
+
+        /*set click listeners for buttons considering their correctness*/
+        
 
         questionCounter++;
+    }
+
+    public void OnClickAnswer(EventArgs e)
+    {
+        
     }
 }
