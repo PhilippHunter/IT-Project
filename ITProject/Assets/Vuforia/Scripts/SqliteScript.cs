@@ -9,34 +9,8 @@ using Assets.Model;
 
 public class SqliteScript
 {
-    static string connectionString = $"URI=file:C:/workspace/IT-Project/ITProject/Assets/Plugins/Database.db";
-    // Use this for initialization
-    //void Start()
-    //{
-    //    // Create database
-    //    string connection = "URI=file:" + Application.dataPath + "/Plugins/" + "Database.db";
-
-    //    // Open connection
-    //    IDbConnection dbcon = new SqliteConnection(connection);
-    //    dbcon.Open();
-
-    //    // Read and print all values in table
-    //    IDbCommand cmnd_read = dbcon.CreateCommand();
-    //    IDataReader reader;
-    //    string query = "SELECT * FROM questions";
-    //    cmnd_read.CommandText = query;
-    //    reader = cmnd_read.ExecuteReader();
-
-    //    while (reader.Read())
-    //    {
-    //        Debug.Log("id: " + reader[0].ToString());
-    //        Debug.Log("text: " + reader[1].ToString());
-    //    }
-
-    //    // Close connection
-    //    dbcon.Close();
-
-    //}
+    static string connectionString = "URI=file:" + Application.dataPath + "/Plugins/" + "Database.db";
+    //static string connectionString = "URI=file:C:/workspace/IT-Project/ITProject/Assets/Plugins/Database.db";
 
     private static Country getCountry(string countryString, SqliteConnection connection)
     {
@@ -126,9 +100,17 @@ public class SqliteScript
         return result;
     }
 
-    //// Update is called once per frame
-    //void Update()
-    //{
-
-    //}
+    public static void SetQuizCompleted(string countryString)
+    {
+        using (SqliteConnection connection = new SqliteConnection(connectionString))
+        {
+            connection.Open();
+            using (SqliteCommand command = new SqliteCommand(
+                "UPDATE countries SET is_completed=1 " +
+                $"WHERE name='{countryString}';", connection))
+            {
+                command.ExecuteReader();
+            }
+        }
+    }
 }

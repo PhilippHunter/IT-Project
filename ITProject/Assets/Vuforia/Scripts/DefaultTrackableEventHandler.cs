@@ -94,6 +94,7 @@ public class DefaultTrackableEventHandler : MonoBehaviour, ITrackableEventHandle
     protected virtual void OnTrackingFound()
     {
         //buttons are set to visible 
+        /*we could check the database if the quiz has already been completed at this point (and maybe give different visual feedback)*/
         changeToQuiz.gameObject.SetActive(true);
         changeToInfo.gameObject.SetActive(true);
 

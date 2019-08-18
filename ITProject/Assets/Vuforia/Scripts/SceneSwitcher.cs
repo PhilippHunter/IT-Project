@@ -8,7 +8,7 @@ using System;
 
 public class SceneSwitcher : MonoBehaviour
 {
-    public static SortedDictionary<Question, List<Answer>> QuestionsMap { get; set; }
+    public static Dictionary<Question, List<Answer>> QuestionsMap { get; set; }
     public static List<Country> Countries { get; set; }
     public void startQuiz(string country)
     {
@@ -16,7 +16,7 @@ public class SceneSwitcher : MonoBehaviour
         List<Question> quests = SqliteScript.GetQuestionsByCountry("Germany");
 
         //get the answers for every question and attach it to the question in a map
-        QuestionsMap = new SortedDictionary<Question, List<Answer>>();
+        QuestionsMap = new Dictionary<Question, List<Answer>>();
         foreach (Question q in quests)
         {
             List<Answer> answers = SqliteScript.GetAnswersByQuestionId(q.ID);
