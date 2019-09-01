@@ -75,23 +75,22 @@ public class SqliteScript
         return result;
     }
 
+    //this is now working
     public static List<Country> GetCountriesByContinent(string continentString)
     {
         List<Country> result = new List<Country>();
         using (SqliteConnection connection = new SqliteConnection(connectionString))
         {
-            using (SqliteCommand command = new SqliteCommand(
-                "SELECT country.name FROM countries AS country " +
+            using (SqliteCommand command = new SqliteCommand($"SELECT * FROM countries AS country " +
                 "JOIN continents AS continent ON country.continent_id=continent.id " +
-                $"WHERE continent.name='{continentString}';"
-                , connection))
+                $"WHERE continent.name='{continentString}';", connection))
             {
                 command.Connection.Open();
                 using (SqliteDataReader reader = command.ExecuteReader())
                 {
                     while (reader.Read())
                     {
-                        Country country = new Country(Convert.ToInt32(reader["id"].ToString()), reader["name"].ToString());
+                        Country country = new Country(Convert.ToInt32(reader["id"]),reader["name"].ToString());
                         result.Add(country);
                     }
                 }

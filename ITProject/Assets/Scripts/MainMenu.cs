@@ -14,13 +14,6 @@ public class MainMenu : MonoBehaviour
 
     public void OpenLearningScene()
     {
-        /*testing reasons - doesn't work yet*/
-        //List<Country> countries = SqliteScript.GetCountriesByContinent("Europe");
-        //foreach (Country c in countries)
-        //{
-        //    Debug.Log(c.Name);
-        //}
-
-        SceneManager.LoadScene("Learn");
+        SceneManager.LoadScene("ContinentSelection");
     }
 }

@@ -10,8 +10,13 @@ public class SceneSwitcher : MonoBehaviour
 {
     public static Dictionary<Question, List<Answer>> QuestionsMap { get; set; }
     public static List<Country> Countries { get; set; }
+
+    public static string currentCountryName="";
     public void startQuiz(string country)
     {
+        //reset to empty
+        currentCountryName = "";
+
         //get all questions for the current country
         List<Question> quests = SqliteScript.GetQuestionsByCountry("Germany");
 
@@ -32,6 +37,9 @@ public class SceneSwitcher : MonoBehaviour
         //make database query here to get correct content for country
 
         Debug.Log("Country: " + country);
-        SceneManager.LoadScene("Learn");
+        //save current country to get country from other script
+        currentCountryName = country;
+        SceneManager.LoadScene("CountryStartPage");
+        
     }
 }
