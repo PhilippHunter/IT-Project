@@ -16,4 +16,9 @@ public class MainMenu : MonoBehaviour
     {
         SceneManager.LoadScene("ContinentSelection");
     }
+
+    public void OpenOnboarding()
+    {
+      SceneManager.LoadScene("OnBoarding");
+    }
 }
