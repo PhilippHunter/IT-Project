@@ -9,7 +9,7 @@ public class CountryDetailPage : MonoBehaviour
 {
     void Start()
     {
-        List<Question> information = new List<Question>();
+        List<Information> information = new List<Information>();
         if (CountryStartPage.countryName != null)
         {
             information = SqliteScript.GetInformationByCountry(CountryStartPage.countryName);

@@ -75,9 +75,9 @@ public class SqliteScript
         return result;
     }
 
-    public static List<Question> GetInformationByCountry(string countryString)
+    public static List<Information> GetInformationByCountry(string countryString)
     {
-        List<Question> result = new List<Question>();
+        List<Information> result = new List<Information>();
         using (SqliteConnection connection = new SqliteConnection(connectionString))
         {
             Country country = getCountry(countryString, connection);
@@ -88,7 +88,7 @@ public class SqliteScript
                 {
                     while (reader.Read())
                     {
-                        Question question = new Question(Convert.ToInt32(reader["id"]), reader["information_text"].ToString());
+                        Information question = new Information(Convert.ToInt32(reader["id"]), reader["information_text"].ToString());
                         if (!result.Contains(question))
                             result.Add(question);
                     }

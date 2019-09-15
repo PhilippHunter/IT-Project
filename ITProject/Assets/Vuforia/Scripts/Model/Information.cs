@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Assets.Vuforia.Scripts.Model
+namespace Assets.Model
 {
-    class Information
+    public class Information
     {
         public Information(int id, string text)
         {
