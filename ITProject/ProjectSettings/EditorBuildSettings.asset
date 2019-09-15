@@ -26,4 +26,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/CountryStartPage.unity
     guid: 6f0715b82c5e4f641a616418ca718ccc
+  - enabled: 1
+    path: Assets/Scenes/CountryDetailPage.unity
+    guid: 517c31c2344e6474ea54b4b4a6b4faea
   m_configObjects: {}

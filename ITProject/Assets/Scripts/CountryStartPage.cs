@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class CountryStartPage : MonoBehaviour
 {
@@ -13,8 +14,14 @@ public class CountryStartPage : MonoBehaviour
         if (SceneSwitcher.currentCountryName != "")
         {
             button.GetComponentInChildren<Text>().text = SceneSwitcher.currentCountryName;
+            countryName = SceneSwitcher.currentCountryName;
         }
         else
             button.GetComponentInChildren<Text>().text = countryName;
+    }
+
+    public void changeToInformationDisplay()
+    {
+        SceneManager.LoadScene("CountryDetailPage");
     }
 }

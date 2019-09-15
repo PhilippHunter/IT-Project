@@ -365,7 +365,9 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -66.97034, y: 16.073975, z: -173.25}
   m_LocalScale: {x: 2.8334, y: 2.8334, z: 2.8334}
-  m_Children: []
+  m_Children:
+  - {fileID: 1458461994}
+  - {fileID: 1980762337}
   m_Father: {fileID: 1624986416}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -487,16 +489,16 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1458461993}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -173.25}
-  m_LocalScale: {x: 3.0909123, y: 3.2671602, z: 3.2671602}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.0908846, y: 1.1530882, z: 1.1530882}
   m_Children:
   - {fileID: 1719545872}
-  m_Father: {fileID: 1624986416}
-  m_RootOrder: 3
+  m_Father: {fileID: 738754755}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 9.4530945, y: 413}
+  m_AnchoredPosition: {x: 26.972343, y: 140.08823}
   m_SizeDelta: {x: 167.5, y: 34.1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1458461995
@@ -781,8 +783,6 @@ RectTransform:
   m_Children:
   - {fileID: 282374592}
   - {fileID: 738754755}
-  - {fileID: 1980762337}
-  - {fileID: 1458461994}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -909,16 +909,16 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1980762336}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -173.25}
-  m_LocalScale: {x: 3.0909123, y: 3.2671602, z: 3.2671602}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.0908846, y: 1.1530882, z: 1.1530882}
   m_Children:
   - {fileID: 246782615}
-  m_Father: {fileID: 1624986416}
-  m_RootOrder: 2
+  m_Father: {fileID: 738754755}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 9.4530945, y: 17.049988}
+  m_AnchoredPosition: {x: 26.972343, y: 0.34446335}
   m_SizeDelta: {x: 167.5, y: 34.1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1980762338
@@ -964,8 +964,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: showCountries
+      - m_Target: {fileID: 1624986417}
+        m_MethodName: changeToInformationDisplay
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

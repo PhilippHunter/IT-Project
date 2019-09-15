@@ -75,6 +75,29 @@ public class SqliteScript
         return result;
     }
 
+    public static List<Question> GetInformationByCountry(string countryString)
+    {
+        List<Question> result = new List<Question>();
+        using (SqliteConnection connection = new SqliteConnection(connectionString))
+        {
+            Country country = getCountry(countryString, connection);
+            using (SqliteCommand command = new SqliteCommand($"SELECT * FROM information WHERE country_id={country.ID};", connection))
+            {
+                // command.Connection.Open();
+                using (SqliteDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        Question question = new Question(Convert.ToInt32(reader["id"]), reader["information_text"].ToString());
+                        if (!result.Contains(question))
+                            result.Add(question);
+                    }
+                }
+            }
+        }
+        return result;
+    }
+
     //this is now working
     public static List<Country> GetCountriesByContinent(string continentString)
     {

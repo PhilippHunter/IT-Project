@@ -9,9 +9,14 @@ public class ContinentSelection : MonoBehaviour
 {
     public static List<Country> countries;   
     public void showCountries()
-    {   
+    {
         //Collecting all countries for clicked continent
         countries = SqliteScript.GetCountriesByContinent(EventSystem.current.currentSelectedGameObject.name);
-        SceneManager.LoadScene("CountrySelection");
+        SceneManager.LoadScene(5);
+    }
+
+    public void switchToCountries()
+    {
+        SceneManager.LoadScene(5);
     }
 }
