@@ -21,4 +21,8 @@ public class MainMenu : MonoBehaviour
     {
       SceneManager.LoadScene("OnBoarding");
     }
+    private void Start()
+    {
+        SqliteScript.CreateDB();
+    }
 }
