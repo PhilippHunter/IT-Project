@@ -39,7 +39,8 @@ public class SqliteScript
                 "INSERT INTO questions(id, question_text, country_id) VALUES('1', 'Welche Währung wird hier genutzt?', '1');" +
                 "INSERT INTO questions(id, question_text, country_id) VALUES('2', 'Oui?', '2');" +
                 "INSERT INTO questions(id, question_text, country_id) VALUES('3', 'Wann war der Mauerfall?', '1');" +
-                "INSERT INTO questions(id, question_text, country_id) VALUES('4', 'Wie viele Einwohner hat Deutschland?', '1');";
+                "INSERT INTO questions(id, question_text, country_id) VALUES('4', 'Wie viele Einwohner hat Deutschland?', '1');" +
+                "INSERT INTO questions(id, question_text, country_id) VALUES('5', 'Welche Farbe ist nicht auf der Flagge zu finden?', '1');";
 
     const string INSERT_ANSWERS =
                 "INSERT INTO answers(id, answer_text, is_correct, question_id) VALUES('1', 'Euro', '1', '1');" +
@@ -49,7 +50,11 @@ public class SqliteScript
                 "INSERT INTO answers(id, answer_text, is_correct, question_id) VALUES('5', '1989', '1', '3');" +
                 "INSERT INTO answers(id, answer_text, is_correct, question_id) VALUES('6', '1990', '0', '3');" +
                 "INSERT INTO answers(id, answer_text, is_correct, question_id) VALUES('7', '1975', '0', '3');" +
-                "INSERT INTO answers(id, answer_text, is_correct, question_id) VALUES('8', '1970', '0', '3');";
+                "INSERT INTO answers(id, answer_text, is_correct, question_id) VALUES('8', '1970', '0', '3');" +
+                "INSERT INTO answers(id, answer_text, is_correct, question_id) VALUES('9', 'Braun', '1', '5');" +
+                "INSERT INTO answers(id, answer_text, is_correct, question_id) VALUES('10', 'Schwarz', '0', '5');" +
+                "INSERT INTO answers(id, answer_text, is_correct, question_id) VALUES('11', 'Gold', '0', '5');" +
+                "INSERT INTO answers(id, answer_text, is_correct, question_id) VALUES('12', 'Rot', '0', '5');";
 
     const string INSERT_INFORMATION =
                 "INSERT INTO information(id, information_text, country_id) VALUES('1', 'Die Hauptstadt von Deutschland ist Berlin.', '1');" +
