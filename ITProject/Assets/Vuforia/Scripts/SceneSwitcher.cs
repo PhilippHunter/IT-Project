@@ -11,11 +11,11 @@ public class SceneSwitcher : MonoBehaviour
     public static Dictionary<Question, List<Answer>> QuestionsMap { get; set; }
     public static List<Country> Countries { get; set; }
 
-    public static string currentCountryName="";
+    public static string currentCountryName = "";
     public void startQuiz(string country)
     {
         //reset to empty
-        currentCountryName = "";
+        currentCountryName = country;
 
         //get all questions for the current country
         List<Question> quests = SqliteScript.GetQuestionsByCountry("Germany");

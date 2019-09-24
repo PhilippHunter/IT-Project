@@ -29,7 +29,7 @@ public class SqliteScript
                 "INSERT INTO continents(id, name, is_unlocked) VALUES('7', 'South-America', '0');";
 
     const string INSERT_COUNTRIES =
-                "INSERT INTO countries(id, name, continent_id, is_completed) VALUES('1', 'Germany', '5', '1');" +
+                "INSERT INTO countries(id, name, continent_id, is_completed) VALUES('1', 'Germany', '5', '0');" +
                 "INSERT INTO countries(id, name, continent_id, is_completed) VALUES('2', 'France', '5', '0');" +
                 "INSERT INTO countries(id, name, continent_id, is_completed) VALUES('3', 'China', '4', '0');" +
                 "INSERT INTO countries(id, name, continent_id, is_completed) VALUES('4', 'India', '4', '0');" +

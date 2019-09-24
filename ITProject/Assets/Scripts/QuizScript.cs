@@ -11,7 +11,10 @@ public class QuizScript : MonoBehaviour
 {
     public TextMeshProUGUI questionText;
     public Button[] buttons;
-    public int questionCounter = 0;
+    int questionCounter = 0;
+    int score = 0;
+    public GameObject winScreen, failScreen;
+    public TextMeshProUGUI winCountryTextField, failCountryTextField;
 
     // Start is called before the first frame update
     void Start()
@@ -27,46 +30,74 @@ public class QuizScript : MonoBehaviour
 
     void InitializeQuizSection()
     {
-        Question question = SceneSwitcher.QuestionsMap.Keys.ElementAt(questionCounter);
-        List<Answer> answers = SceneSwitcher.QuestionsMap.Values.ElementAt(questionCounter);
-        //TextMeshProUGUI button1 = answer1.GetComponent<TextMeshProUGUI>();
-        //TextMeshProUGUI button2 = answer2.GetComponent<TextMeshProUGUI>();
-        //TextMeshProUGUI button3 = answer3.GetComponent<TextMeshProUGUI>();
-        //TextMeshProUGUI button4 = answer4.GetComponent<TextMeshProUGUI>();
-
-        /*set question text*/
-        questionText.text = question.Text;
-
-        /*set answer texts*/
-        /*we need to pick 4 random answers from the answer-set (can be more than 4 per question)*/
-        /*tryed to shuffel order of answers so they're random*/
-        //var shuffledAnswers = answers.OrderBy(item => UnityEngine.Random.Range(0,answers.Count));
-
-        buttons[0].GetComponentInChildren<Text>().text = answers[0].Text;
-        buttons[1].GetComponentInChildren<Text>().text = answers[1].Text;
-        buttons[2].GetComponentInChildren<Text>().text = answers[2].Text;
-        buttons[3].GetComponentInChildren<Text>().text = answers[3].Text;
-
-        /*set click listeners for buttons considering their correctness*/
-        for (int i = 0; i < buttons.Length; i++)
+        if (questionCounter < SceneSwitcher.QuestionsMap.Count)
         {
-            if (answers[i].IsCorrectAnswer)
-                buttons[i].onClick.AddListener(OnClickRightAnswer);
-            else
-                buttons[i].onClick.AddListener(OnClickWrongAnswer);
-        }
+            Question question = SceneSwitcher.QuestionsMap.Keys.ElementAt(questionCounter);
+            List<Answer> answers = SceneSwitcher.QuestionsMap.Values.ElementAt(questionCounter);
 
-        questionCounter++;
+            /*set question text*/
+            questionText.text = question.Text;
+
+            /*set answer texts*/
+            /*we need to pick 4 random answers from the answer-set (can be more than 4 per question)*/
+            /*tryed to shuffel order of answers so they're random*/
+            //var shuffledAnswers = answers.OrderBy(item => UnityEngine.Random.Range(0,answers.Count));
+
+            buttons[0].GetComponentInChildren<Text>().text = answers[0].Text;
+            buttons[1].GetComponentInChildren<Text>().text = answers[1].Text;
+            buttons[2].GetComponentInChildren<Text>().text = answers[2].Text;
+            buttons[3].GetComponentInChildren<Text>().text = answers[3].Text;
+
+            /*set click listeners for buttons considering their correctness*/
+            for (int i = 0; i < buttons.Length; i++)
+            {
+                buttons[i].onClick.RemoveAllListeners();
+                if (answers[i].IsCorrectAnswer)
+                    buttons[i].onClick.AddListener(OnClickRightAnswer);
+                else
+                    buttons[i].onClick.AddListener(OnClickWrongAnswer);
+            }
+
+            questionCounter++;
+        }
+        else
+        {
+            /*no more questions -> finish screen*/
+            ShowResults();
+        }
     }
 
-    public void OnClickRightAnswer()
+    void ShowResults()
     {
+        if (score == SceneSwitcher.QuestionsMap.Count)
+        {
+            //fill screen with data from current quiz (country name)
+            winCountryTextField.text = SceneSwitcher.currentCountryName;
+
+            //show screen
+            winScreen.SetActive(true);
+
+            //update completion state in database
+            SqliteScript.SetQuizCompleted(SceneSwitcher.currentCountryName);
+        }
+        else
+        {
+            //TODO create loose screen in scene
+            failCountryTextField.text = SceneSwitcher.currentCountryName;
+
+            //show screen
+            failScreen.SetActive(true);
+        }
+    }
+
+    void OnClickRightAnswer()
+    {
+        score++;
         /*load next quiz step*/
-        /*increment some score counter*/
         InitializeQuizSection();
     }
 
-    public void OnClickWrongAnswer()
+    void OnClickWrongAnswer()
     {
         /*load next quiz step*/
         InitializeQuizSection();
