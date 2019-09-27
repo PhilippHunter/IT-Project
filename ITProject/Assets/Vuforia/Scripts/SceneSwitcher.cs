@@ -12,6 +12,7 @@ public class SceneSwitcher : MonoBehaviour
     public static List<Country> Countries { get; set; }
 
     public static string currentCountryName = "";
+
     public void startQuiz(string country)
     {
         //reset to empty
@@ -41,5 +42,39 @@ public class SceneSwitcher : MonoBehaviour
         currentCountryName = country;
         SceneManager.LoadScene("CountryStartPage");
         
+    }
+
+    public void LoadPerviousScene()
+    {
+        switch (SceneManager.GetActiveScene().name)
+        {
+            case "ContinentSelection":
+                SceneManager.LoadScene("Menu");
+                break;
+
+            case "CountrySelection":
+                SceneManager.LoadScene("ContinentSelection");
+                break;
+
+            case "CountryStartPage":
+                SceneManager.LoadScene("CountrySelection");
+                break;
+
+            case "CountryDetailPage":
+                SceneManager.LoadScene("CountryStartPage");
+                break;
+
+            case "AR":
+                SceneManager.LoadScene("Menu");
+                break;
+
+            case "Quiz":
+                SceneManager.LoadScene("AR");
+                break;
+
+            default:
+                SceneManager.LoadScene("Menu");
+                break;
+        }
     }
 }
