@@ -69,12 +69,12 @@ public class SqliteScript
     {
         if (!File.Exists(Application.persistentDataPath + "/Database.db"))
         {
-            using (IDbConnection connection = new SqliteConnection(connectionString))
+            using (SqliteConnection connection = new SqliteConnection(connectionString))
             {
 
                 connection.Open();
 
-                IDbCommand cmd = connection.CreateCommand();
+                SqliteCommand cmd = connection.CreateCommand();
                 string queryString = "";
 
                 queryString = CREATE_TABLES;
