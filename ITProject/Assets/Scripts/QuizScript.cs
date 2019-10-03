@@ -9,6 +9,7 @@ using System;
 
 public class QuizScript : MonoBehaviour
 {
+    public TextMeshProUGUI countryName;
     public TextMeshProUGUI questionText;
     public Button[] buttons;
     int questionCounter = 0;
@@ -32,6 +33,9 @@ public class QuizScript : MonoBehaviour
     {
         if (questionCounter < SceneSwitcher.QuestionsMap.Count)
         {
+            /*Set name of Quiz*/
+            countryName.text = SceneSwitcher.currentCountryName;
+
             Question question = SceneSwitcher.QuestionsMap.Keys.ElementAt(questionCounter);
             List<Answer> answers = SceneSwitcher.QuestionsMap.Values.ElementAt(questionCounter);
 

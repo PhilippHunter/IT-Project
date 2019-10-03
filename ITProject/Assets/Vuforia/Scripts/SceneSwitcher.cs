@@ -18,7 +18,7 @@ public class SceneSwitcher : MonoBehaviour
         currentCountryName = country;
 
         //get all questions for the current country
-        List<Question> quests = SqliteScript.GetQuestionsByCountry("Germany");
+        List<Question> quests = SqliteScript.GetQuestionsByCountry(country);
 
         //get the answers for every question and attach it to the question in a map
         QuestionsMap = new Dictionary<Question, List<Answer>>();

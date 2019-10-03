@@ -54,7 +54,11 @@ public class SqliteScript
                 "INSERT INTO answers(id, answer_text, is_correct, question_id) VALUES('9', 'Braun', '1', '5');" +
                 "INSERT INTO answers(id, answer_text, is_correct, question_id) VALUES('10', 'Schwarz', '0', '5');" +
                 "INSERT INTO answers(id, answer_text, is_correct, question_id) VALUES('11', 'Gold', '0', '5');" +
-                "INSERT INTO answers(id, answer_text, is_correct, question_id) VALUES('12', 'Rot', '0', '5');";
+                "INSERT INTO answers(id, answer_text, is_correct, question_id) VALUES('12', 'Rot', '0', '5');" +
+                "INSERT INTO answers(id, answer_text, is_correct, question_id) VALUES('13', 'Si', '1', '2');" +
+                "INSERT INTO answers(id, answer_text, is_correct, question_id) VALUES('14', 'Yes', '0', '2');" +
+                "INSERT INTO answers(id, answer_text, is_correct, question_id) VALUES('15', 'Wie', '0', '2');" +
+                "INSERT INTO answers(id, answer_text, is_correct, question_id) VALUES('16', 'Ja', '0', '2');";
 
     const string INSERT_INFORMATION =
                 "INSERT INTO information(id, information_text, country_id) VALUES('1', 'Die Hauptstadt von Deutschland ist Berlin.', '1');" +
