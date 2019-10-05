@@ -13,11 +13,11 @@ public class CountryStartPage : MonoBehaviour
         GameObject button = GameObject.Find("CountryName");
         if (SceneSwitcher.currentCountryName != "")
         {
-            button.GetComponentInChildren<Text>().text = SceneSwitcher.currentCountryName;
+            button.GetComponentInChildren<Text>().text = SceneSwitcher.currentCountryName.ToUpper();
             countryName = SceneSwitcher.currentCountryName;
         }
         else
-            button.GetComponentInChildren<Text>().text = countryName;
+            button.GetComponentInChildren<Text>().text = countryName.ToUpper();
     }
 
     public void changeToInformationDisplay()
