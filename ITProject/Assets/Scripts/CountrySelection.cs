@@ -17,20 +17,6 @@ public class CountrySelection : MonoBehaviour {
             menu.transform.GetChild(i).name = ContinentSelection.countries[i].Name;
             menu.transform.GetChild(i).GetComponentInChildren<Text>().text = ContinentSelection.countries[i].Name.ToUpper();
         }
-        //if (ContinentSelection.countries != null)
-        //{
-        //    button.GetComponentInChildren<Text>().text = ContinentSelection.countries[0].Name;
-
-        //    //Making copies of sample object for all countries in list
-        //    for (int i = 1; i < ContinentSelection.countries.Count; i++)
-        //    {
-        //        GameObject newButton = Instantiate(button) as GameObject;
-        //        //adding new position to object
-        //        newButton.transform.position = new Vector3(0, 470 - i * 150, -173.25f);
-        //        newButton.transform.SetParent(menu.transform, false);
-        //        newButton.GetComponentInChildren<Text>().text = ContinentSelection.countries[i].Name;
-        //    }
-        //}
     }
 
     public void countrySelected()

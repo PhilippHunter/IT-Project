@@ -15,6 +15,9 @@ public class CountryStartPage : MonoBehaviour
         {
             button.GetComponentInChildren<Text>().text = SceneSwitcher.currentCountryName.ToUpper();
             countryName = SceneSwitcher.currentCountryName;
+
+            //reset so that new countries can be selected
+            SceneSwitcher.currentCountryName = "";
         }
         else
             button.GetComponentInChildren<Text>().text = countryName.ToUpper();
