@@ -1,12 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <QCARConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="qcar_config.xsd">
   <Tracking>
-    <ImageTarget name="South_Africa" size="0.150000 0.100000" />
-    <ImageTarget name="Holland" size="0.150000 0.112500" />
-    <ImageTarget name="Malaysia" size="0.150000 0.112426" />
-    <ImageTarget name="USA" size="0.150000 0.200000" />
-    <ImageTarget name="Mexico" size="0.150000 0.105224" />
-    <ImageTarget name="Japan" size="0.150000 0.105224" />
+    <ImageTarget name="Deutschland" size="0.100000 0.100000" />
+    <ImageTarget name="USA" size="0.100000 0.100000" />
+    <ImageTarget name="Suedafrika" size="0.100000 0.100000" />
+    <ImageTarget name="Peru" size="0.100000 0.100000" />
+    <ImageTarget name="Niederlande" size="0.100000 0.100000" />
+    <ImageTarget name="Mexiko" size="0.100000 0.100000" />
+    <ImageTarget name="Malaysia" size="0.100000 0.100000" />
+    <ImageTarget name="Kongo" size="0.100000 0.100000" />
+    <ImageTarget name="Kanada" size="0.100000 0.100000" />
+    <ImageTarget name="Japan" size="0.100000 0.100000" />
+    <ImageTarget name="Indien" size="0.100000 0.100000" />
+    <ImageTarget name="Frankreich" size="0.100000 0.100000" />
+    <ImageTarget name="Brasilien" size="0.100000 0.100000" />
+    <ImageTarget name="Argentinien" size="0.100000 0.100000" />
+    <ImageTarget name="Aeypten" size="0.100000 0.100000" />
     <ImageTarget name="Germany" size="0.100000 0.070000" />
     <ImageTarget name="France" size="0.100000 0.066667" />
   </Tracking>

@@ -1,0 +1,16 @@
+# Blender MTL File: 'None'
+# Material Count: 1
+
+newmtl 14090__Hear__No__Evil__Monkey_v2
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 1.000000 1.000000 1.000000
+Ks 0.090000 0.090000 0.090000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd 14090_ Hear_ No_ Evil_ Monkey_v2_diff.jpg
+map_Bump Bump.tga
+map_Ka 14090_ Hear_ No_ Evil_ Monkey_v2_diff.jpg
+map_Ks Monkey_v2_spec.JPG
