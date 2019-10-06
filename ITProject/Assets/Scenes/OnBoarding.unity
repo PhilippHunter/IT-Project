@@ -2163,6 +2163,49 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1280049566}
   m_CullTransparentMesh: 0
+--- !u!1 &1500360918
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1500360919}
+  - component: {fileID: 1500360920}
+  m_Layer: 0
+  m_Name: ScenSwitcher
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1500360919
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1500360918}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1500360920
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1500360918}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b8fc61626fdf774c96e1134275d9ab2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1540507124
 GameObject:
   m_ObjectHideFlags: 0
@@ -3180,6 +3223,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1821472391}
     m_Modifications:
+    - target: {fileID: 114986767821132932, guid: 3799b466693f2274ea286d89dd431724,
+        type: 3}
+      propertyPath: m_Text
+      value: This example shows how the iOS Home Screen can be replicated using the
+        "Next" Snap Target, in that in order to navigate to the next screen, it is
+        not required that more than half of the next screen is in view.
+      objectReference: {fileID: 0}
+    - target: {fileID: 114082971081970768, guid: 3799b466693f2274ea286d89dd431724,
+        type: 3}
+      propertyPath: m_Text
+      value: iOS Home Screen
+      objectReference: {fileID: 0}
     - target: {fileID: 1302717229743420, guid: 3799b466693f2274ea286d89dd431724, type: 3}
       propertyPath: m_Name
       value: Information
@@ -3288,18 +3343,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.4999999
-      objectReference: {fileID: 0}
-    - target: {fileID: 114082971081970768, guid: 3799b466693f2274ea286d89dd431724,
-        type: 3}
-      propertyPath: m_Text
-      value: iOS Home Screen
-      objectReference: {fileID: 0}
-    - target: {fileID: 114986767821132932, guid: 3799b466693f2274ea286d89dd431724,
-        type: 3}
-      propertyPath: m_Text
-      value: This example shows how the iOS Home Screen can be replicated using the
-        "Next" Snap Target, in that in order to navigate to the next screen, it is
-        not required that more than half of the next screen is in view.
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3799b466693f2274ea286d89dd431724, type: 3}

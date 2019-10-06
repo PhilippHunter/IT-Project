@@ -72,9 +72,19 @@ public class SceneSwitcher : MonoBehaviour
                 SceneManager.LoadScene("AR");
                 break;
 
+            case "OnBoarding":
+                SceneManager.LoadScene("Menu");
+                break;
+
             default:
                 SceneManager.LoadScene("Menu");
                 break;
         }
+    }
+
+    public void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+            this.LoadPerviousScene();
     }
 }
