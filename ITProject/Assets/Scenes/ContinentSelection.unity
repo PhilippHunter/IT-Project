@@ -365,7 +365,7 @@ GameObject:
   - component: {fileID: 402156235}
   - component: {fileID: 402156234}
   m_Layer: 0
-  m_Name: South-America
+  m_Name: "S\xFCdamerika"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -712,7 +712,7 @@ GameObject:
   - component: {fileID: 623513753}
   - component: {fileID: 623513752}
   m_Layer: 0
-  m_Name: North-America
+  m_Name: Nordamerika
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -959,7 +959,7 @@ GameObject:
   - component: {fileID: 832711098}
   - component: {fileID: 832711097}
   m_Layer: 0
-  m_Name: Australia
+  m_Name: Australien
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1091,7 +1091,7 @@ GameObject:
   - component: {fileID: 893012605}
   - component: {fileID: 893012604}
   m_Layer: 0
-  m_Name: Europe
+  m_Name: Europa
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1833,7 +1833,7 @@ GameObject:
   - component: {fileID: 1725618001}
   - component: {fileID: 1725618000}
   m_Layer: 0
-  m_Name: Africa
+  m_Name: Afrika
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1965,7 +1965,7 @@ GameObject:
   - component: {fileID: 1845306461}
   - component: {fileID: 1845306460}
   m_Layer: 0
-  m_Name: Asia
+  m_Name: Asien
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
