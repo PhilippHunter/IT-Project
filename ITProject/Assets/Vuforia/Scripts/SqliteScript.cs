@@ -31,9 +31,9 @@ public class SqliteScript
     const string INSERT_COUNTRIES =
 
                 //Afrika
-                "INSERT INTO countries(name, continent_id, is_completed) VALUES('Ägypten', '1', '0');" +   //1
+                "INSERT INTO countries(name, continent_id, is_completed) VALUES('Aegypten', '1', '0');" +   //1
                 "INSERT INTO countries(name, continent_id, is_completed) VALUES('Kongo', '1', '0');" +     //2
-                "INSERT INTO countries(name, continent_id, is_completed) VALUES('Südafrika', '1', '0');" + //3
+                "INSERT INTO countries(name, continent_id, is_completed) VALUES('Suedafrika', '1', '0');" + //3
 
                 //Asien
                 "INSERT INTO countries(name, continent_id, is_completed) VALUES('Indien', '4', '0');" +     //4
@@ -774,7 +774,7 @@ public class SqliteScript
         return result;
     }
 
-    //this is now working
+
     public static List<Country> GetCountriesByContinent(string continentString)
     {
         List<Country> result = new List<Country>();
@@ -798,6 +798,28 @@ public class SqliteScript
         return result;
     }
 
+    public static Continent GetContinentByCountry(string countryString)
+    {
+        Continent result;
+        using (SqliteConnection connection = new SqliteConnection(connectionString))
+        {
+            using (SqliteCommand command = new SqliteCommand($"SELECT * FROM continents AS continent " +
+                "JOIN countries AS country ON country.continent_id=continent.id " +
+                $"WHERE country.name='{countryString}';", connection))
+            {
+                command.Connection.Open();
+                using (SqliteDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        result = new Continent(Convert.ToInt32(reader["id"]), reader["name"].ToString());
+                        return result;
+                    }
+                }
+            }
+        }
+        return null;
+    }
     public static void SetQuizCompleted(string countryString)
     {
         using (SqliteConnection connection = new SqliteConnection(connectionString))
