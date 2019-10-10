@@ -100,7 +100,11 @@ public class DefaultTrackableEventHandler : MonoBehaviour, ITrackableEventHandle
 
         //Calling methods of SceneSwitcherScript and handing over the country name (which is the targetImageName)
         changeToQuiz.onClick.AddListener(() => sceneSwitcher.startQuiz(mTrackableBehaviour.TrackableName));
-        changeToInfo.onClick.AddListener(() => sceneSwitcher.getCountryInfo(mTrackableBehaviour.TrackableName));
+        changeToInfo.onClick.AddListener(() => {
+            sceneSwitcher.getCountryInfo(mTrackableBehaviour.TrackableName);
+            SceneSwitcher.fromAR = true;
+            }
+        );
 
         var rendererComponents = GetComponentsInChildren<Renderer>(true);
         var colliderComponents = GetComponentsInChildren<Collider>(true);
