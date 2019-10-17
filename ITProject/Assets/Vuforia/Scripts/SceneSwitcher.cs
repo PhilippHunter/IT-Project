@@ -84,12 +84,9 @@ public class SceneSwitcher : MonoBehaviour
                 break;
 
             case "OnBoarding":
-                //SceneManager.LoadScene("Menu");
-                //break;
-                SceneManager.LoadScene("Quiz");
-                startQuiz("Kongo");
+                SceneManager.LoadScene("Menu");
                 break;
-
+                
             default:
                 SceneManager.LoadScene("Menu");
                 break;
