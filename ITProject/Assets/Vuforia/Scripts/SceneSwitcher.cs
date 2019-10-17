@@ -2,6 +2,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Assets.Model;
+using System.Linq;
 using Vuforia;
 using UnityEngine.UI;
 using System;
@@ -20,12 +21,14 @@ public class SceneSwitcher : MonoBehaviour
         //reset to empty
         currentCountryName = country;
 
-        //get all questions for the current country
-        List<Question> quests = SqliteScript.GetQuestionsByCountry(country);
+        //get all questions for the current country and shuffle them so the order is always different
+        List<Question> questions = SqliteScript.GetQuestionsByCountry(country);
+        questions = questions.OrderBy(item => UnityEngine.Random.Range(0, questions.Count))
+            .ToList();
 
         //get the answers for every question and attach it to the question in a map
         QuestionsMap = new Dictionary<Question, List<Answer>>();
-        foreach (Question q in quests)
+        foreach (Question q in questions)
         {
             List<Answer> answers = SqliteScript.GetAnswersByQuestionId(q.ID);
             if (answers.Count != 0)
