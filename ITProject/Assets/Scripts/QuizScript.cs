@@ -43,20 +43,19 @@ public class QuizScript : MonoBehaviour
             questionText.text = question.Text;
 
             /*set answer texts*/
-            /*we need to pick 4 random answers from the answer-set (can be more than 4 per question)*/
-            /*tryed to shuffel order of answers so they're random*/
-            //var shuffledAnswers = answers.OrderBy(item => UnityEngine.Random.Range(0,answers.Count));
+            var shuffledAnswers = answers.OrderBy(item => UnityEngine.Random.Range(0, answers.Count))
+                .ToList();
 
-            buttons[0].GetComponentInChildren<Text>().text = answers[0].Text;
-            buttons[1].GetComponentInChildren<Text>().text = answers[1].Text;
-            buttons[2].GetComponentInChildren<Text>().text = answers[2].Text;
-            buttons[3].GetComponentInChildren<Text>().text = answers[3].Text;
+            buttons[0].GetComponentInChildren<Text>().text = shuffledAnswers[0].Text;
+            buttons[1].GetComponentInChildren<Text>().text = shuffledAnswers[1].Text;
+            buttons[2].GetComponentInChildren<Text>().text = shuffledAnswers[2].Text;
+            buttons[3].GetComponentInChildren<Text>().text = shuffledAnswers[3].Text;
 
             /*set click listeners for buttons considering their correctness*/
             for (int i = 0; i < buttons.Length; i++)
             {
                 buttons[i].onClick.RemoveAllListeners();
-                if (answers[i].IsCorrectAnswer)
+                if (shuffledAnswers[i].IsCorrectAnswer)
                     buttons[i].onClick.AddListener(OnClickRightAnswer);
                 else
                     buttons[i].onClick.AddListener(OnClickWrongAnswer);

@@ -67,7 +67,7 @@ public class SqliteScript
                 "INSERT INTO questions(question_text, country_id) VALUES('Welches Tier war im alten Ägypten heilig?', '1');" +
                 //Kongo
                 "INSERT INTO questions(question_text, country_id) VALUES('Was ist die offizielle Sprache im Kongo?', '2');" +
-                "INSERT INTO questions(question_text, country_id) VALUES('Auf welchen Platz ist der Kongo von den größten Ländern in Afrika? ', '2');" +
+                "INSERT INTO questions(question_text, country_id) VALUES('Auf welchem Platz ist der Kongo von den größten Ländern in Afrika? ', '2');" +
                 "INSERT INTO questions(question_text, country_id) VALUES('Welche Landschaftsform findet man nicht im Kongo? ', '2');" +
                 "INSERT INTO questions(question_text, country_id) VALUES('Nach was wurde die Demokratische Republik Kongo benannt?', '2');" +
                 "INSERT INTO questions(question_text, country_id) VALUES('Welcher Staat kolonialisierte den Kongo bis 1960?', '2');" +
