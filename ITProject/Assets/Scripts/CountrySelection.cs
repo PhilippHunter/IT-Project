@@ -10,12 +10,25 @@ public class CountrySelection : MonoBehaviour {
     private void Start()
     {
         //Find Sample Objects
-        GameObject menu = GameObject.Find("Menu");
+        GameObject canvas = GameObject.Find("Canvas");
 
-        for(int i = 0; i< ContinentSelection.countries.Count; i++)
+ 
+
+        //finding inactive objects like this
+        Transform[] trs = canvas.GetComponentsInChildren<Transform>(true);
+        foreach (Transform t in trs)
         {
-            menu.transform.GetChild(i).name = ContinentSelection.countries[i].Name;
-            menu.transform.GetChild(i).GetComponentInChildren<Text>().text = ContinentSelection.countries[i].Name.ToUpper();
+            if (t.name == ContinentSelection.currentContinent)
+            {
+                t.gameObject.SetActive(true);
+                Transform menu = t.Find("Menu");
+
+                for (int i = 0; i < ContinentSelection.countries.Count; i++)
+                {
+                    menu.GetChild(i).name = ContinentSelection.countries[i].Name;
+                    menu.GetChild(i).GetComponentInChildren<Text>().text = ContinentSelection.countries[i].Name.ToUpper();
+                }
+            }
         }
     }
 

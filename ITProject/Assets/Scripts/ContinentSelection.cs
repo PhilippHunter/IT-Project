@@ -7,11 +7,13 @@ using UnityEngine.SceneManagement;
 
 public class ContinentSelection : MonoBehaviour
 {
-    public static List<Country> countries;   
+    public static List<Country> countries;
+    public static string currentContinent;
     public void showCountries()
     {
         //Collecting all countries for clicked continent
-        countries = SqliteScript.GetCountriesByContinent(EventSystem.current.currentSelectedGameObject.name);
+        currentContinent = EventSystem.current.currentSelectedGameObject.name;
+        countries = SqliteScript.GetCountriesByContinent(currentContinent);
         SceneManager.LoadScene(5);
     }
 

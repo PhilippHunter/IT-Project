@@ -16,10 +16,36 @@ public class QuizScript : MonoBehaviour
     int score = 0;
     public GameObject winScreen, failScreen;
     public TextMeshProUGUI winCountryTextField, failCountryTextField;
+    private Transform currentQuestionDisplay;
 
     // Start is called before the first frame update
     void Start()
     {
+        GameObject canvas = GameObject.Find("Canvas");
+        Continent currentContinent = SqliteScript.GetContinentByCountry(SceneSwitcher.currentCountryName);
+        Debug.Log(currentContinent.Name);
+
+        //finding inactive objects like this
+        Transform[] trs = canvas.GetComponentsInChildren<Transform>(true);
+        foreach (Transform t in trs)
+        {
+            if (t.name == currentContinent.Name)
+            {
+                currentQuestionDisplay = t;
+
+                //showing the display screen with correct colors
+                currentQuestionDisplay.gameObject.SetActive(true);
+
+                //setting the correct variables for output
+                foreach(TextMeshProUGUI currentObject in t.GetComponentsInChildren<TextMeshProUGUI>())
+                {
+                    if (currentObject.name.Equals("QuizName")) countryName = currentObject;
+                    else if (currentObject.name.Equals("QuestionText")) questionText = currentObject;
+                }
+
+                for (int i = 0; i < t.GetComponentsInChildren<Button>().Count(); i++) buttons[i] = t.GetComponentsInChildren<Button>()[i];
+            }            
+        }
         InitializeQuizSection();
     }
 
@@ -77,7 +103,10 @@ public class QuizScript : MonoBehaviour
             //fill screen with data from current quiz (country name)
             winCountryTextField.text = SceneSwitcher.currentCountryName;
 
-            //show screen
+            //hide display screen
+            currentQuestionDisplay.gameObject.SetActive(false);
+
+            //show win screen
             winScreen.SetActive(true);
 
             //update completion state in database
@@ -88,7 +117,10 @@ public class QuizScript : MonoBehaviour
             //TODO create loose screen in scene
             failCountryTextField.text = SceneSwitcher.currentCountryName;
 
-            //show screen
+            //hide display screen
+            currentQuestionDisplay.gameObject.SetActive(false);
+
+            //show fail screen
             failScreen.SetActive(true);
         }
     }
