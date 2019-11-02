@@ -29,6 +29,7 @@ public class DefaultTrackableEventHandler : MonoBehaviour, ITrackableEventHandle
     //fields for buttons that appear on target recognition
     public Button changeToQuiz;
     public Button changeToInfo;
+    public UnityEngine.UI.Image countryName;
 
     //reference to another script
     public SceneSwitcher sceneSwitcher;
@@ -97,6 +98,7 @@ public class DefaultTrackableEventHandler : MonoBehaviour, ITrackableEventHandle
         /*we could check the database if the quiz has already been completed at this point (and maybe give different visual feedback)*/
         changeToQuiz.gameObject.SetActive(true);
         changeToInfo.gameObject.SetActive(true);
+        countryName.gameObject.SetActive(true);
 
         //Calling methods of SceneSwitcherScript and handing over the country name (which is the targetImageName)
         changeToQuiz.onClick.AddListener(() => sceneSwitcher.startQuiz(mTrackableBehaviour.TrackableName));
@@ -105,6 +107,20 @@ public class DefaultTrackableEventHandler : MonoBehaviour, ITrackableEventHandle
             SceneSwitcher.fromAR = true;
             }
         );
+
+        GameObject canvas = GameObject.Find("Canvas");
+
+        //finding inactive objects like this
+        Transform[] trs = canvas.GetComponentsInChildren<Transform>(true);
+        foreach (Transform t in trs)
+        {
+            if (t.name == "img_countryName")
+            {
+                t.GetChild(0).name = mTrackableBehaviour.TrackableName;
+                t.GetChild(0).GetComponentInChildren<Text>().text = mTrackableBehaviour.TrackableName.ToUpper();
+                
+            }
+        }
 
         var rendererComponents = GetComponentsInChildren<Renderer>(true);
         var colliderComponents = GetComponentsInChildren<Collider>(true);
@@ -132,6 +148,7 @@ public class DefaultTrackableEventHandler : MonoBehaviour, ITrackableEventHandle
         {
             changeToQuiz.gameObject.SetActive(false);
             changeToInfo.gameObject.SetActive(false);
+            countryName.gameObject.SetActive(false);
         }
         catch (Exception e)
         {
