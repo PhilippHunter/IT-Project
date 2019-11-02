@@ -100,6 +100,10 @@ public class DefaultTrackableEventHandler : MonoBehaviour, ITrackableEventHandle
         changeToInfo.gameObject.SetActive(true);
         countryName.gameObject.SetActive(true);
 
+        changeToInfo.GetComponent<UnityEngine.UI.Image>().sprite = Resources.Load<Sprite>("Big Buttons/" + buttonForCountry(mTrackableBehaviour.TrackableName));
+        changeToQuiz.GetComponent<UnityEngine.UI.Image>().sprite = Resources.Load<Sprite>("Big Buttons/" + buttonForCountry(mTrackableBehaviour.TrackableName));
+        countryName.GetComponentInChildren<Text>().text = mTrackableBehaviour.TrackableName.ToUpper();
+
         //Calling methods of SceneSwitcherScript and handing over the country name (which is the targetImageName)
         changeToQuiz.onClick.AddListener(() => sceneSwitcher.startQuiz(mTrackableBehaviour.TrackableName));
         changeToInfo.onClick.AddListener(() => {
@@ -107,20 +111,6 @@ public class DefaultTrackableEventHandler : MonoBehaviour, ITrackableEventHandle
             SceneSwitcher.fromAR = true;
             }
         );
-
-        GameObject canvas = GameObject.Find("Canvas");
-
-        //finding inactive objects like this
-        Transform[] trs = canvas.GetComponentsInChildren<Transform>(true);
-        foreach (Transform t in trs)
-        {
-            if (t.name == "img_countryName")
-            {
-                t.GetChild(0).name = mTrackableBehaviour.TrackableName;
-                t.GetChild(0).GetComponentInChildren<Text>().text = mTrackableBehaviour.TrackableName.ToUpper();
-                
-            }
-        }
 
         var rendererComponents = GetComponentsInChildren<Renderer>(true);
         var colliderComponents = GetComponentsInChildren<Collider>(true);
@@ -172,4 +162,35 @@ public class DefaultTrackableEventHandler : MonoBehaviour, ITrackableEventHandle
             component.enabled = false;
     }
     #endregion // PROTECTED_METHODS
+
+    private string buttonForCountry(string countryName)
+    {
+        string buttonName;
+        switch (SqliteScript.GetContinentByCountry(countryName).Name)
+        {
+            case "Europa":
+                buttonName = "EU_Green";
+                break;
+            case "Afrika":
+                buttonName = "AF_Red";
+                break;
+            case "Asien":
+                buttonName = "AS_Pink";
+                break;
+            case "Nordamerika":
+                buttonName = "NA_Blue";
+                break;
+            case "Südamerika":
+                buttonName = "SA_Yellow";
+                break;
+            case "Australien":
+                buttonName = "AU_Orange";
+                break;
+            default:
+                buttonName = "Grau";
+                break;
+        }
+        return buttonName;
+            
+    }
 }
