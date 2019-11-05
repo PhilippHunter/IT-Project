@@ -9,7 +9,7 @@ using System;
 
 public class SceneSwitcher : MonoBehaviour
 {
-    public static Dictionary<Question, List<Answer>> QuestionsMap { get; set; }
+    public static List<Question> Questions { get; set; }
     public static List<Country> Countries { get; set; }
 
     public static string currentCountryName = "";
@@ -22,20 +22,18 @@ public class SceneSwitcher : MonoBehaviour
         currentCountryName = country;
 
         //get all questions for the current country and shuffle them so the order is always different
-        List<Question> questions = SqliteScript.GetQuestionsByCountry(country);
-        questions = questions.OrderBy(item => UnityEngine.Random.Range(0, questions.Count))
-            .ToList();
+        Questions = SqliteScript.GetQuestionsByCountry(country);
+        Questions = Questions.OrderBy(item => UnityEngine.Random.Range(0, Questions.Count))
+                             .ToList();
 
-        //get the answers for every question and attach it to the question in a map
-        QuestionsMap = new Dictionary<Question, List<Answer>>();
-        foreach (Question q in questions)
+        //get the answers for each question and attach them as a reference list
+        foreach (Question q in Questions)
         {
-            List<Answer> answers = SqliteScript.GetAnswersByQuestionId(q.ID);
-            if (answers.Count != 0)
-                QuestionsMap.Add(q, answers);
+            q.Answers = SqliteScript.GetAnswersByQuestionId(q.ID);
+            q.Answers = q.Answers.OrderBy(item => UnityEngine.Random.Range(0, q.Answers.Count))
+                                 .ToList();
         }
 
-        
         SceneManager.LoadScene("Quiz");
     }
 
@@ -47,7 +45,7 @@ public class SceneSwitcher : MonoBehaviour
         //save current country to get country from other script
         currentCountryName = country;
         SceneManager.LoadScene("CountryStartPage");
-        
+
     }
 
     public void LoadPreviousScene()
@@ -63,10 +61,11 @@ public class SceneSwitcher : MonoBehaviour
                 break;
 
             case "CountryStartPage":
-                if (fromAR) {
+                if (fromAR)
+                {
                     SceneManager.LoadScene("AR");
                     fromAR = false;
-                        }
+                }
                 else
                     SceneManager.LoadScene("CountrySelection");
                 break;
@@ -86,7 +85,7 @@ public class SceneSwitcher : MonoBehaviour
             case "OnBoarding":
                 SceneManager.LoadScene("Menu");
                 break;
-                
+
             default:
                 SceneManager.LoadScene("Menu");
                 break;
