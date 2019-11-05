@@ -57,31 +57,28 @@ public class QuizScript : MonoBehaviour
 
     void InitializeQuizSection()
     {
-        if (questionCounter < SceneSwitcher.QuestionsMap.Count)
+        if (questionCounter < SceneSwitcher.Questions.Count)
         {
+            Question question = SceneSwitcher.Questions[questionCounter];
+            List<Answer> answers = question.Answers;
+
             /*Set name of Quiz*/
             countryName.text = SceneSwitcher.currentCountryName;
-
-            Question question = SceneSwitcher.QuestionsMap.Keys.ElementAt(questionCounter);
-            List<Answer> answers = SceneSwitcher.QuestionsMap.Values.ElementAt(questionCounter);
 
             /*set question text*/
             questionText.text = question.Text;
 
             /*set answer texts*/
-            var shuffledAnswers = answers.OrderBy(item => UnityEngine.Random.Range(0, answers.Count))
-                .ToList();
-
-            buttons[0].GetComponentInChildren<Text>().text = shuffledAnswers[0].Text;
-            buttons[1].GetComponentInChildren<Text>().text = shuffledAnswers[1].Text;
-            buttons[2].GetComponentInChildren<Text>().text = shuffledAnswers[2].Text;
-            buttons[3].GetComponentInChildren<Text>().text = shuffledAnswers[3].Text;
+            buttons[0].GetComponentInChildren<Text>().text = question.Answers[0].Text;
+            buttons[1].GetComponentInChildren<Text>().text = question.Answers[1].Text;
+            buttons[2].GetComponentInChildren<Text>().text = question.Answers[2].Text;
+            buttons[3].GetComponentInChildren<Text>().text = question.Answers[3].Text;
 
             /*set click listeners for buttons considering their correctness*/
             for (int i = 0; i < buttons.Length; i++)
             {
                 buttons[i].onClick.RemoveAllListeners();
-                if (shuffledAnswers[i].IsCorrectAnswer)
+                if (question.Answers[i].IsCorrectAnswer)
                     buttons[i].onClick.AddListener(OnClickRightAnswer);
                 else
                     buttons[i].onClick.AddListener(OnClickWrongAnswer);
@@ -98,7 +95,7 @@ public class QuizScript : MonoBehaviour
 
     void ShowResults()
     {
-        if (score == SceneSwitcher.QuestionsMap.Count)
+        if (score == SceneSwitcher.Questions.Count)
         {
             //fill screen with data from current quiz (country name)
             winCountryTextField.text = SceneSwitcher.currentCountryName;
