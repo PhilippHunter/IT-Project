@@ -32,7 +32,7 @@ public class SqliteScript
 
                 //Afrika
                 "INSERT INTO countries(name, continent_id, is_completed) VALUES('Aegypten', '1', '0');" +   //1
-                "INSERT INTO countries(name, continent_id, is_completed) VALUES('Kongo', '1', '0');" +     //2
+                "INSERT INTO countries(name, continent_id, is_completed) VALUES('Kongo', '1', '0');" +      //2
                 "INSERT INTO countries(name, continent_id, is_completed) VALUES('Suedafrika', '1', '0');" + //3
 
                 //Asien
@@ -461,8 +461,8 @@ public class SqliteScript
                 "INSERT INTO answers(answer_text, is_correct, question_id) VALUES('Portugiesisch', '0', '58');" +
                 "INSERT INTO answers(answer_text, is_correct, question_id) VALUES('Mexikanisch', '0', '58');" +
 
-                "INSERT INTO answers(answer_text, is_correct, question_id) VALUES('Nationalgericht', '1', '59');" +
-                "INSERT INTO answers(answer_text, is_correct, question_id) VALUES('Strohhut', '0', '59');" +
+                "INSERT INTO answers(answer_text, is_correct, question_id) VALUES('Nationalgericht', '0', '59');" +
+                "INSERT INTO answers(answer_text, is_correct, question_id) VALUES('Strohhut', '1', '59');" +
                 "INSERT INTO answers(answer_text, is_correct, question_id) VALUES('Pyramide', '0', '59');" +
                 "INSERT INTO answers(answer_text, is_correct, question_id) VALUES('Schnauzbart', '0', '59');" +
 
