@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
 using Assets.Model;
 
 public class CountryStartPage : MonoBehaviour
@@ -16,14 +17,14 @@ public class CountryStartPage : MonoBehaviour
 
         if (SceneSwitcher.currentCountryName != "")
         {
-            button.GetComponentInChildren<Text>().text = SceneSwitcher.currentCountryName.ToUpper();
+            button.GetComponentInChildren<TextMeshProUGUI>().text = SceneSwitcher.currentCountryName.ToUpper();
             countryName = SceneSwitcher.currentCountryName;
 
             //reset so that new countries can be selected
             SceneSwitcher.currentCountryName = "";
         }
         else
-            button.GetComponentInChildren<Text>().text = countryName.ToUpper();
+            button.GetComponentInChildren<TextMeshProUGUI>().text = countryName.ToUpper();
 
         Continent currentContinent = SqliteScript.GetContinentByCountry(countryName);
         Debug.Log(currentContinent.Name);
