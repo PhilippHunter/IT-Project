@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
+using TMPro;
 using UnityEngine.UI;
 
 public class CountrySelection : MonoBehaviour { 
@@ -26,7 +27,7 @@ public class CountrySelection : MonoBehaviour {
                 for (int i = 0; i < ContinentSelection.countries.Count; i++)
                 {
                     menu.GetChild(i).name = ContinentSelection.countries[i].Name;
-                    menu.GetChild(i).GetComponentInChildren<Text>().text = ContinentSelection.countries[i].Name.ToUpper();
+                    menu.GetChild(i).GetComponentInChildren<TextMeshProUGUI>().text = ContinentSelection.countries[i].Name.ToUpper();
                 }
             }
         }
