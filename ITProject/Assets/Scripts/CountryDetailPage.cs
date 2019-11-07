@@ -15,10 +15,12 @@ public class CountryDetailPage : MonoBehaviour
         {
             information = SqliteScript.GetInformationByCountry(CountryStartPage.countryName);
 
+            GameObject cards = GameObject.Find("Content");
+
             //there are always 5 pieces of information for each country
             for (int i = 0; i < information.Count; i++)
             {
-                transform.GetChild(i).GetComponentInChildren<TextMeshProUGUI>().text = information[i].Text;
+                cards.GetComponentsInChildren<TextMeshProUGUI>()[i].text = information[i].Text;
             }
         }
     }
