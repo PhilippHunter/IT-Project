@@ -15,18 +15,17 @@ public class SqliteScript
     const string CREATE_TABLES =
                 "CREATE TABLE IF NOT EXISTS answers(id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, answer_text TEXT, is_correct INTEGER, question_id INTEGER NOT NULL, FOREIGN KEY(question_id) REFERENCES questions(id));" +
                 "CREATE TABLE IF NOT EXISTS continents(id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, name TEXT, is_unlocked INTEGER DEFAULT 0);" +
-                "CREATE TABLE IF NOT EXISTS countries(id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, name TEXT NOT NULL, continent_id INTEGER, is_completed INTEGER DEFAULT 0);" +
-                "CREATE TABLE IF NOT EXISTS information(id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, information_text TEXT NOT NULL, country_id INTEGER NOT NULL);" +
-                "CREATE TABLE IF NOT EXISTS questions(id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE, question_text TEXT, country_id INTEGER);";
+                "CREATE TABLE IF NOT EXISTS countries(id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, name TEXT NOT NULL, continent_id INTEGER, is_completed INTEGER DEFAULT 0, FOREIGN KEY(continent_id) REFERENCES continents(id));" +
+                "CREATE TABLE IF NOT EXISTS information(id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, information_text TEXT NOT NULL, country_id INTEGER NOT NULL, FOREIGN KEY(country_id) REFERENCES countries(id));" +
+                "CREATE TABLE IF NOT EXISTS questions(id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, question_text TEXT, country_id INTEGER, FOREIGN KEY(country_id) REFERENCES countries(id));";
 
     const string INSERT_CONTINTENTS =
                 "INSERT INTO continents(name, is_unlocked) VALUES('Afrika', '0');" +        //1
-                "INSERT INTO continents(name, is_unlocked) VALUES('Antarktis', '0');" +     //2
-                "INSERT INTO continents(name, is_unlocked) VALUES('Australien', '0');" +    //3
-                "INSERT INTO continents(name, is_unlocked) VALUES('Asien', '0');" +         //4
-                "INSERT INTO continents(name, is_unlocked) VALUES('Europa', '0');" +        //5
-                "INSERT INTO continents(name, is_unlocked) VALUES('Nordamerika', '0');" +   //6
-                "INSERT INTO continents(name, is_unlocked) VALUES('Südamerika', '0');";     //7
+                "INSERT INTO continents(name, is_unlocked) VALUES('Australien', '0');" +    //2
+                "INSERT INTO continents(name, is_unlocked) VALUES('Asien', '0');" +         //3
+                "INSERT INTO continents(name, is_unlocked) VALUES('Europa', '0');" +        //4
+                "INSERT INTO continents(name, is_unlocked) VALUES('Nordamerika', '0');" +   //5
+                "INSERT INTO continents(name, is_unlocked) VALUES('Südamerika', '0');";     //6
     #region Countries
     const string INSERT_COUNTRIES =
 
@@ -36,24 +35,24 @@ public class SqliteScript
                 "INSERT INTO countries(name, continent_id, is_completed) VALUES('Suedafrika', '1', '0');" + //3
 
                 //Asien
-                "INSERT INTO countries(name, continent_id, is_completed) VALUES('Indien', '4', '0');" +     //4
-                "INSERT INTO countries(name, continent_id, is_completed) VALUES('Japan', '4', '0');" +      //5
-                "INSERT INTO countries(name, continent_id, is_completed) VALUES('Malaysia', '4', '0');" +   //6
+                "INSERT INTO countries(name, continent_id, is_completed) VALUES('Indien', '3', '0');" +     //4
+                "INSERT INTO countries(name, continent_id, is_completed) VALUES('Japan', '3', '0');" +      //5
+                "INSERT INTO countries(name, continent_id, is_completed) VALUES('Malaysia', '3', '0');" +   //6
 
                 //Europa
-                "INSERT INTO countries(name, continent_id, is_completed) VALUES('Deutschland', '5', '0');" +//7
-                "INSERT INTO countries(name, continent_id, is_completed) VALUES('Frankreich', '5', '0');" + //8
-                "INSERT INTO countries(name, continent_id, is_completed) VALUES('Niederlande', '5', '0');" +//9
+                "INSERT INTO countries(name, continent_id, is_completed) VALUES('Deutschland', '4', '0');" +//7
+                "INSERT INTO countries(name, continent_id, is_completed) VALUES('Frankreich', '4', '0');" + //8
+                "INSERT INTO countries(name, continent_id, is_completed) VALUES('Niederlande', '4', '0');" +//9
 
                 //Nordamerika
-                "INSERT INTO countries(name, continent_id, is_completed) VALUES('USA', '6', '0');" +        //10
-                "INSERT INTO countries(name, continent_id, is_completed) VALUES('Kanada', '6', '0');" +     //11
-                "INSERT INTO countries(name, continent_id, is_completed) VALUES('Mexiko', '6', '0');" +     //12
+                "INSERT INTO countries(name, continent_id, is_completed) VALUES('USA', '5', '0');" +        //10
+                "INSERT INTO countries(name, continent_id, is_completed) VALUES('Kanada', '5', '0');" +     //11
+                "INSERT INTO countries(name, continent_id, is_completed) VALUES('Mexiko', '5', '0');" +     //12
 
                 //Suedamerika
-                "INSERT INTO countries(name, continent_id, is_completed) VALUES('Argentinien', '7', '0');" +//13
-                "INSERT INTO countries(name, continent_id, is_completed) VALUES('Brasilien', '7', '0');" +  //14
-                "INSERT INTO countries(name, continent_id, is_completed) VALUES('Peru', '7', '0');";        //15
+                "INSERT INTO countries(name, continent_id, is_completed) VALUES('Argentinien', '6', '0');" +//13
+                "INSERT INTO countries(name, continent_id, is_completed) VALUES('Brasilien', '6', '0');" +  //14
+                "INSERT INTO countries(name, continent_id, is_completed) VALUES('Peru', '6', '0');";        //15
 
     #endregion
 
