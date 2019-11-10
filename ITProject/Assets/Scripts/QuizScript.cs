@@ -69,10 +69,10 @@ public class QuizScript : MonoBehaviour
             questionText.text = question.Text;
 
             /*set answer texts*/
-            buttons[0].GetComponentInChildren<Text>().text = question.Answers[0].Text;
-            buttons[1].GetComponentInChildren<Text>().text = question.Answers[1].Text;
-            buttons[2].GetComponentInChildren<Text>().text = question.Answers[2].Text;
-            buttons[3].GetComponentInChildren<Text>().text = question.Answers[3].Text;
+            buttons[0].GetComponentInChildren<TextMeshProUGUI>().text = question.Answers[0].Text;
+            buttons[1].GetComponentInChildren<TextMeshProUGUI>().text = question.Answers[1].Text;
+            buttons[2].GetComponentInChildren<TextMeshProUGUI>().text = question.Answers[2].Text;
+            buttons[3].GetComponentInChildren<TextMeshProUGUI>().text = question.Answers[3].Text;
 
             /*set click listeners for buttons considering their correctness*/
             for (int i = 0; i < buttons.Length; i++)
