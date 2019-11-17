@@ -79,12 +79,12 @@ public class SqliteScript
 
                 //Indien
                 "INSERT INTO questions(question_text, country_id) VALUES('Welche Sprache wird in Indien am häufigsten gesprochen?', '4');" +
-                "INSERT INTO questions(question_text, country_id) VALUES('Indien ist in der Rangliste der meistbevölkertsten Länder auf Platz…', '4');" +
+                "INSERT INTO questions(question_text, country_id) VALUES('Indien ist in der Rangliste der meistbevölkerten Länder auf Platz…', '4');" +
                 "INSERT INTO questions(question_text, country_id) VALUES('Was trinken Inder am liebsten?', '4');" +
                 "INSERT INTO questions(question_text, country_id) VALUES('Was wurde in Indien erfunden?', '4');" +
                 "INSERT INTO questions(question_text, country_id) VALUES('Was befindet sich in Indiens Hauptstadt?', '4');" +
                 //Japan
-                "INSERT INTO questions(question_text, country_id) VALUES('Der älteste Mensch auf der Erde ist Japaner.Wie alt ist er?', '5');" +
+                "INSERT INTO questions(question_text, country_id) VALUES('Der älteste Mensch auf der Erde ist Japaner. Wie alt ist er?', '5');" +
                 "INSERT INTO questions(question_text, country_id) VALUES('Aus wie vielen Inseln besteht Japan?', '5');" +
                 "INSERT INTO questions(question_text, country_id) VALUES('Welche japanische Insel ist die größte?', '5');" +
                 "INSERT INTO questions(question_text, country_id) VALUES('Was ist die Hauptstadt von Japan?', '5');" +
@@ -92,7 +92,7 @@ public class SqliteScript
                 //Malaysia
                 "INSERT INTO questions(question_text, country_id) VALUES('Welches dieser Völker lebt nicht in Malaysia?', '6');" +
                 "INSERT INTO questions(question_text, country_id) VALUES('Wie viele Stockwerke haben die Petrona Towers?', '6');" +
-                "INSERT INTO questions(question_text, country_id) VALUES('In Malaysia lebt die Weltgrößte Population von…', '6');" +
+                "INSERT INTO questions(question_text, country_id) VALUES('In Malaysia lebt die weltgrößte Population von…', '6');" +
                 "INSERT INTO questions(question_text, country_id) VALUES('Welche Religion findet man in Malaysia am Häufigsten?', '6');" +
                 "INSERT INTO questions(question_text, country_id) VALUES('Was ist das Nationaltier von Malaysia?', '6');" +
 
@@ -113,7 +113,7 @@ public class SqliteScript
                 "INSERT INTO questions(question_text, country_id) VALUES('Wie viel Prozent der Niederlande liegen unter dem Meeresspiegel?', '9');" +
                 "INSERT INTO questions(question_text, country_id) VALUES('Was essen Niederländer besonders gerne?', '9');" +
                 "INSERT INTO questions(question_text, country_id) VALUES('Wo befindet sich der Regierungssitz der Niederlande?', '9');" +
-                "INSERT INTO questions(question_text, country_id) VALUES('In den Niederlanden gibt’s es den größten…', '9');" +
+                "INSERT INTO questions(question_text, country_id) VALUES('In den Niederlanden gibt es den größten…', '9');" +
 
                 //USA
                 "INSERT INTO questions(question_text, country_id) VALUES('Wie viele Staaten gibt es in den USA?', '10');" +
@@ -132,7 +132,7 @@ public class SqliteScript
                 "INSERT INTO questions(question_text, country_id) VALUES('Wie heißt die Hauptstadt von Mexiko?', '12');" +
                 "INSERT INTO questions(question_text, country_id) VALUES('Welche Sprache sprechen Mexikaner?', '12');" +
                 "INSERT INTO questions(question_text, country_id) VALUES('Was ist in Mexiko ein Sombrero?', '12');" +
-                "INSERT INTO questions(question_text, country_id) VALUES('Was tun die Einwohner Mexikos am Tag der Toten?', '12');" +
+                "INSERT INTO questions(question_text, country_id) VALUES('Was machen die Einwohner Mexikos am Tag der Toten?', '12');" +
 
                 //Argentinien
                 "INSERT INTO questions(question_text, country_id) VALUES('Wie heißt der höchste Berg Argentiniens?', '13');" +
@@ -143,7 +143,7 @@ public class SqliteScript
                 //Brasilien
                 "INSERT INTO questions(question_text, country_id) VALUES('Welche Sprache spricht man in Brasilien?', '14');" +
                 "INSERT INTO questions(question_text, country_id) VALUES('Was ist die Hauptstadt von Brasilien?', '14');" +
-                "INSERT INTO questions(question_text, country_id) VALUES('Welche Sportart ist in Brasilien sehr am beliebtesten?', '14');" +
+                "INSERT INTO questions(question_text, country_id) VALUES('Welche Sportart ist in Brasilien am beliebtesten?', '14');" +
                 "INSERT INTO questions(question_text, country_id) VALUES('Brasilien besitzt den … Fluss der Erde.', '14');" +
                 "INSERT INTO questions(question_text, country_id) VALUES('Was ist das bekannteste Fest in Brasilien?', '14');" +
                 //Peru
@@ -471,7 +471,7 @@ public class SqliteScript
                 "INSERT INTO answers(answer_text, is_correct, question_id) VALUES('Zu Hause ausruhen', '0', '60');" +
 
                 //Argentinien
-                "INSERT INTO answers(answer_text, is_correct, question_id) VALUES('Anconcagua', '1', '61');" +
+                "INSERT INTO answers(answer_text, is_correct, question_id) VALUES('Aconcagua', '1', '61');" +
                 "INSERT INTO answers(answer_text, is_correct, question_id) VALUES('Mount Everest', '0', '61');" +
                 "INSERT INTO answers(answer_text, is_correct, question_id) VALUES('Makalu', '0', '61');" +
                 "INSERT INTO answers(answer_text, is_correct, question_id) VALUES('Kilimandjaro', '0', '61');" +
@@ -552,15 +552,15 @@ public class SqliteScript
     #region Information
     const string INSERT_INFORMATION =
                 //Ägypten
-                "INSERT INTO information(information_text, country_id) VALUES('Die Hauptstadt Kairo ist mit 22mio Einwohnern die größte Stadt Afrikas und des mittleren Ostens', '1');" +
+                "INSERT INTO information(information_text, country_id) VALUES('Die Hauptstadt Kairo ist mit 22mio Einwohnern die größte Stadt Afrikas und des mittleren Ostens.', '1');" +
                 "INSERT INTO information(information_text, country_id) VALUES('Die Amtssprache Ägyptens ist arabisch.', '1');" +
-                "INSERT INTO information(information_text, country_id) VALUES('In Ägypten scheint im Durschnitt 10 Stunden am Tag die Sonne und es ist damit das drittsonnigste Land der Erde', '1');" +
+                "INSERT INTO information(information_text, country_id) VALUES('In Ägypten scheint im Durschnitt 10 Stunden am Tag die Sonne und es ist damit das drittsonnigste Land der Erde.', '1');" +
                 "INSERT INTO information(information_text, country_id) VALUES('Die Pyramiden von Gizeh in Ägypten wurden 2500 v.C.fertig gebaut und sind Weltkulturerbe.', '1');" +
                 "INSERT INTO information(information_text, country_id) VALUES('Katzen waren im alten Ägypten heilig. Für das Töten einer Katze erhielt man die Todesstrafe.', '1');" +
                 //Kongo
                 "INSERT INTO information(information_text, country_id) VALUES('Im Kongo spricht man französisch.', '2');" +
                 "INSERT INTO information(information_text, country_id) VALUES('Mit einer Fläche von über 2,3mio Quadratmetern ist der Kongo das flächenmäßig zweitgrößte Land in Afrika.', '2');" +
-                "INSERT INTO information(information_text, country_id) VALUES('Die Natur im Kongo ist sehr vielfältig. Es gibt Regenwald, Gebirge, Savanne und Grasland ', '2');" +
+                "INSERT INTO information(information_text, country_id) VALUES('Die Natur im Kongo ist sehr vielfältig. Es gibt Regenwald, Gebirge, Savanne und Grasland. ', '2');" +
                 "INSERT INTO information(information_text, country_id) VALUES('Die Demokratische Republik Kongo wurde nach dem Fluss Kongo benannt, der der zweitgrößte Fluss in Afrika ist.', '2');" +
                 "INSERT INTO information(information_text, country_id) VALUES('Der Kongo wurde von Belgien kolonialisiert und erhielt 1960 seine Unabhängigkeit.', '2');" +
                 //Südafrika
@@ -571,7 +571,7 @@ public class SqliteScript
                 "INSERT INTO information(information_text, country_id) VALUES('In Südafrika herrschte fast 50 Jahre lang Rassentrennung zwischen dunkel- und hellhäutigen. Diese wurde 1994 abgeschafft.', '3');" +
 
                 //Indien
-                "INSERT INTO information(information_text, country_id) VALUES('In Indien gibt es 22 offizielle Sprachen.Am meisten gesprochen wird Hindi.', '4');" +
+                "INSERT INTO information(information_text, country_id) VALUES('In Indien gibt es 22 offizielle Sprachen. Am meisten gesprochen wird Hindi.', '4');" +
                 "INSERT INTO information(information_text, country_id) VALUES('In Indien leben nach China die meisten Menschen der Erde.', '4');" +
                 "INSERT INTO information(information_text, country_id) VALUES('Das Nationalgetränk in Indien ist Chai (Tee).', '4');" +
                 "INSERT INTO information(information_text, country_id) VALUES('Inder haben das Shampoo erfunden.', '4');" +
@@ -584,7 +584,7 @@ public class SqliteScript
                 "INSERT INTO information(information_text, country_id) VALUES('In der Metropolregion der Hauptstadt leben über 37mio Einwohner.', '5');" +
                 //Malaysia
                 "INSERT INTO information(information_text, country_id) VALUES('In Malaysia leben Menschen verschiedener Herkünfte zusammen. Malayen, Chinesen und Inder.', '6');" +
-                "INSERT INTO information(information_text, country_id) VALUES('Die Petrona Towers waren bis 2004 das höchste Gebäude der Erde.Hier gibt es 88 Stockwerke.', '6');" +
+                "INSERT INTO information(information_text, country_id) VALUES('Die Petrona Towers waren bis 2004 das höchste Gebäude der Erde. Hier gibt es 88 Stockwerke.', '6');" +
                 "INSERT INTO information(information_text, country_id) VALUES('In Malaysia lebt die weltgrößte Population von Kobras, den längsten Giftschlangen.', '6');" +
                 "INSERT INTO information(information_text, country_id) VALUES('Die Hauptreligion ist der Islam (60%). Es gibt auch Buddhisten(20%), Christen(9%) und Hindu(6%)', '6');" +
                 "INSERT INTO information(information_text, country_id) VALUES('Das Nationaltier von Malaysia ist der Tiger.', '6');" +
@@ -605,7 +605,7 @@ public class SqliteScript
                 "INSERT INTO information(information_text, country_id) VALUES('In den Niederlanden gibt es mehr Fahrräder als Einwohner.', '9');" +
                 "INSERT INTO information(information_text, country_id) VALUES('26% des Landes liegen unter dem Meeresspiegel.', '9');" +
                 "INSERT INTO information(information_text, country_id) VALUES('Niederländer essen im Schnitt 17kg Käse im Jahr.', '9');" +
-                "INSERT INTO information(information_text, country_id) VALUES('Die Hauptstadt der Niederlande ist Amsterdam.Der Regierungssitz befindet sich in Den Haag.', '9');" +
+                "INSERT INTO information(information_text, country_id) VALUES('Die Hauptstadt der Niederlande ist Amsterdam. Der Regierungssitz befindet sich in Den Haag.', '9');" +
                 "INSERT INTO information(information_text, country_id) VALUES('Rotterdam besitzt den größten Hafen der Welt.', '9');" +
 
                 //USA
@@ -619,30 +619,30 @@ public class SqliteScript
                 "INSERT INTO information(information_text, country_id) VALUES('Seit 1931 ist Kanada ein eigenständiges und unabhängiges Land.', '11');" +
                 "INSERT INTO information(information_text, country_id) VALUES('Kanada ist flächenmäßig das zweitgrößte Land hat aber vergleichsweise wenige Einwohner.', '11');" +
                 "INSERT INTO information(information_text, country_id) VALUES('Die Amtssprachen in Kanada sind Englisch und Französisch.', '11');" +
-                "INSERT INTO information(information_text, country_id) VALUES('Kanada ist bekannt für seine landschaftliche Vielfalt.Es gibt sehr hohe Gebirge, kalte Winterlandschaften und rund zwei Millionen Seen.', '11');" +
+                "INSERT INTO information(information_text, country_id) VALUES('Kanada ist bekannt für seine landschaftliche Vielfalt. Es gibt sehr hohe Gebirge, kalte Winterlandschaften und rund zwei Millionen Seen.', '11');" +
                 //Mexico
-                "INSERT INTO information(information_text, country_id) VALUES('Früher lebten im heutigen Mexiko verschiedene Völker. Z.B.die Maya und die Azteken, von welchen es heute noch riesige Tempel und Pyramiden gibt.', '12');" +
-                "INSERT INTO information(information_text, country_id) VALUES('Die Hauptstadt von Mexiko wurde nach dem Land selbst benannt.Sie heißt Mexiko-Stadt. ', '12');" +
+                "INSERT INTO information(information_text, country_id) VALUES('Früher lebten im heutigen Mexiko verschiedene Völker. Z.B. die Maya und die Azteken, von welchen es heute noch riesige Tempel und Pyramiden gibt.', '12');" +
+                "INSERT INTO information(information_text, country_id) VALUES('Die Hauptstadt von Mexiko wurde nach dem Land selbst benannt. Sie heißt Mexiko-Stadt. ', '12');" +
                 "INSERT INTO information(information_text, country_id) VALUES('In Mexiko hat keine eigene Sprache. Man spricht hier Spanisch.', '12');" +
                 "INSERT INTO information(information_text, country_id) VALUES('Der Sombrero ist ein sehr großer runder Strohhut, der in Mexiko besonders beliebt ist.', '12');" +
-                "INSERT INTO information(information_text, country_id) VALUES('Die Mexikaner feiern sehr gerne große traditionelle Feste.Unter anderem den Tag der Toten.', '12');" +
+                "INSERT INTO information(information_text, country_id) VALUES('Die Mexikaner feiern sehr gerne große traditionelle Feste. Unter anderem den Tag der Toten.', '12');" +
 
                 //Argentinien
-                "INSERT INTO information(information_text, country_id) VALUES('Der höchste Berg Amerikas steht in Argentinien.Der Aconcagua ist ca. 6900 Meter hoch.', '13');" +
-                "INSERT INTO information(information_text, country_id) VALUES('Am Anfang des 20. Jahrhunderts wanderten eine große Menge Europäer nach Argentinien ein.Hauptsächlich Italiener und Spanier.', '13');" +
+                "INSERT INTO information(information_text, country_id) VALUES('Der höchste Berg Amerikas steht in Argentinien. Der Aconcagua ist ca. 6900 Meter hoch.', '13');" +
+                "INSERT INTO information(information_text, country_id) VALUES('Am Anfang des 20. Jahrhunderts wanderten eine große Menge Europäer nach Argentinien ein. Hauptsächlich Italiener und Spanier.', '13');" +
                 "INSERT INTO information(information_text, country_id) VALUES('In der Hauptstadt Buenos Aires lebt ca.jeder dritte Argentinier.', '13');" +
                 "INSERT INTO information(information_text, country_id) VALUES('In Argentinien sind nahezu alle Klimazonen vorzufinden. Neben Tropenwäldern und Wüsten gibt es im Süden auch sehr kalte Gebiete.', '13');" +
                 "INSERT INTO information(information_text, country_id) VALUES('In Argentinien bezahlt man mit dem argentinischen Peso.', '13');" +
                 //Brasilien
                 "INSERT INTO information(information_text, country_id) VALUES('Brasilien ist das Einzige Land in Südamerika, in dem man Portugiesisch spricht. Dies ist die einzige Sprache in Brasilien.', '14');" +
-                "INSERT INTO information(information_text, country_id) VALUES('Rio de Janeiro war lange Zeit Hauptstadt Brasiliens.Mittlerweile ist Brasilia, die extra gebaut wurde um als Hauptstadt zu dienen.', '14');" +
-                "INSERT INTO information(information_text, country_id) VALUES('Der Nationalsport des Landes ist Fußball.Brasiliens Nationalmannschaft zählt zu den erfolgreichsten der Welt.', '14');" +
-                "INSERT INTO information(information_text, country_id) VALUES('Durch Brasilien fließt der wasserreichste Fluss der Erde; der Amazonas.Um ihn herum befindet sich ebenfalls der größte Regenwald der Welt.', '14');" +
+                "INSERT INTO information(information_text, country_id) VALUES('Rio de Janeiro war lange Zeit Hauptstadt Brasiliens. Mittlerweile ist Brasilia, die extra gebaut wurde um als Hauptstadt zu dienen.', '14');" +
+                "INSERT INTO information(information_text, country_id) VALUES('Der Nationalsport des Landes ist Fußball. Brasiliens Nationalmannschaft zählt zu den erfolgreichsten der Welt.', '14');" +
+                "INSERT INTO information(information_text, country_id) VALUES('Durch Brasilien fließt der wasserreichste Fluss der Erde, der Amazonas. Um ihn herum befindet sich ebenfalls der größte Regenwald der Welt.', '14');" +
                 "INSERT INTO information(information_text, country_id) VALUES('In Brasilien feiert man jedes Jahr den Karneval. Er zählt zu den größten Festen der Welt und wird in der Stadt Rio de Janeiro ausgetragen.', '14');" +
                 //Peru
-                "INSERT INTO information(information_text, country_id) VALUES('Vor ca. 500 Jahren erbauten die damaligen Bewohner Perus die Gebirgsstadt Machu Picchu.Sie ist heute noch gut erhalten.', '15');" +
-                "INSERT INTO information(information_text, country_id) VALUES('In Peru gibt es einen der höchsten Wasserfälle der Welt.Die Gocta Fälle sind 771 Meter hoch.', '15');" +
-                "INSERT INTO information(information_text, country_id) VALUES('Peru besteht aus drei verschiedenen Landschaftszonen. Der Küste, Der Wüste und dem Gebirge.Das Klima unterscheidet sich hier sehr stark.', '15');" +
+                "INSERT INTO information(information_text, country_id) VALUES('Vor ca. 500 Jahren erbauten die damaligen Bewohner Perus die Gebirgsstadt Machu Picchu. Sie ist heute noch gut erhalten.', '15');" +
+                "INSERT INTO information(information_text, country_id) VALUES('In Peru gibt es einen der höchsten Wasserfälle der Welt. Die Gocta Fälle sind 771 Meter hoch.', '15');" +
+                "INSERT INTO information(information_text, country_id) VALUES('Peru besteht aus drei verschiedenen Landschaftszonen. Der Küste, Der Wüste und dem Gebirge. Das Klima unterscheidet sich hier sehr stark.', '15');" +
                 "INSERT INTO information(information_text, country_id) VALUES('In Peru wurden über 1800 verschiedene Vogelarten entdeckt.', '15');" +
                 "INSERT INTO information(information_text, country_id) VALUES('Die Hauptstadt von Peru ist Lima und liegt an der Westküste des Kontinents.', '15');";
     #endregion
