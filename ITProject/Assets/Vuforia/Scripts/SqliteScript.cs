@@ -429,8 +429,8 @@ public class SqliteScript
                 "INSERT INTO answers(answer_text, is_correct, question_id) VALUES('1704', '0', '52');" +
                 "INSERT INTO answers(answer_text, is_correct, question_id) VALUES('1943', '0', '52');" +
 
-                "INSERT INTO answers(answer_text, is_correct, question_id) VALUES('größte', '1', '53');" +
-                "INSERT INTO answers(answer_text, is_correct, question_id) VALUES('zweitgrößte', '0', '53');" +
+                "INSERT INTO answers(answer_text, is_correct, question_id) VALUES('größte', '0', '53');" +
+                "INSERT INTO answers(answer_text, is_correct, question_id) VALUES('zweitgrößte', '1', '53');" +
                 "INSERT INTO answers(answer_text, is_correct, question_id) VALUES('meistbewohnte', '0', '53');" +
                 "INSERT INTO answers(answer_text, is_correct, question_id) VALUES('wärmste', '0', '53');" +
 
