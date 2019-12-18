@@ -120,6 +120,8 @@ public class QuizScript : MonoBehaviour
             //show fail screen
             failScreen.SetActive(true);
         }
+        //reset currentCountryName
+        SceneSwitcher.currentCountryName = "";
     }
 
     void OnClickRightAnswer()
