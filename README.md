@@ -1,5 +1,5 @@
 # IT-Project
-Android Augmented Reality Project from 4 funny students c:
+Android Augmented Reality Project from 4 students
 
 ## Setting up Unity
 1. Download Unity Hub from https://unity3d.com/get-unity/download
